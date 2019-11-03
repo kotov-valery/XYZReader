@@ -9,4 +9,8 @@
 
     <string name="up">Up</string>
 
+    <string name="share_action_description">Tell friends about this awesome article!</string>
+
+    <!-- errors -->
+    <string name="article_not_found_error">Article could not be found. We are very sorry about that.</string>
 </resources>
