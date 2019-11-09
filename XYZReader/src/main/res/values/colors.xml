@@ -26,6 +26,8 @@
     <color name="divider">#BDBDBD</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="background">#757575</color>
+
     <color name="details_title_color">@color/white</color>
     <color name="details_title_background_color">#333000</color>
 </resources>
