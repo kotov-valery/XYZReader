@@ -1,6 +1,7 @@
 <resources>
     <!-- detail -->
     <dimen name="detail_title_padding">16dp</dimen>
+    <dimen name="detail_navigation_margin">8dp</dimen>
     <dimen name="detail_title_text_size">28sp</dimen>
     <dimen name="detail_body_text_size">18sp</dimen>
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
