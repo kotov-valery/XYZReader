@@ -8,6 +8,7 @@
     <dimen name="list_width">@dimen/match_parent_value</dimen>
     <dimen name="toolbar_elevation">8dp</dimen>
     <dimen name="list_elevation">4dp</dimen>
+    <dimen name="card_view_margin">0dp</dimen>
 
     <!-- detail -->
     <dimen name="detail_title_padding">16dp</dimen>
