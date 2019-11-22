@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- article list -->
-    <dimen name="list_width">550dp</dimen>
-    <dimen name="toolbar_elevation">8dp</dimen>
-    <dimen name="list_elevation">4dp</dimen>
-</resources>
