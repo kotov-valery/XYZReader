@@ -31,7 +31,6 @@ public class ArticleListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
         mTwoPane = getResources().getBoolean(R.bool.two_pane_view_enabled);
-        Log.d(TAG, "Two pane view: " + mTwoPane);
     }
 
     @Override
