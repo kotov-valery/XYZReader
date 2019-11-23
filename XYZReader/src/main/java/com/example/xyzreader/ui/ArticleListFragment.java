@@ -163,7 +163,8 @@ public class ArticleListFragment extends Fragment implements
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = getLayoutInflater().inflate(R.layout.list_item_article, parent, false);
+            LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+            View view = layoutInflater.inflate(R.layout.list_item_article, parent, false);
             final ViewHolder vh = new ViewHolder(view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

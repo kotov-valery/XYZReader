@@ -38,13 +38,12 @@ public class ArticleListActivity extends AppCompatActivity
         if (mTwoPane) {
             ArticleDetailFragment article = ArticleDetailFragment.newInstance(id);
 
-            FragmentManager fragmentManager = getFragmentManager();
             if (mItemId == INVALID) {
-                fragmentManager.beginTransaction()
+                getFragmentManager().beginTransaction()
                         .add(R.id.article_container, article)
                         .commit();
             } else {
-                fragmentManager.beginTransaction()
+                getFragmentManager().beginTransaction()
                         .replace(R.id.article_container, article)
                         .commit();
             }
