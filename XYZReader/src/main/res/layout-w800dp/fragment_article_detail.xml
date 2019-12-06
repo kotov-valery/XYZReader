@@ -46,18 +46,11 @@
                 android:layout_marginTop="@dimen/detail_article_author_top_margin"
                 android:textColor="@color/details_title_color" />
 
-            <TextView
-                android:id="@+id/article_body"
-                style="?android:attr/textAppearanceMedium"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/article_body_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/detail_article_text_top_margin"
-                android:paddingTop="@dimen/detail_article_text_top_padding"
-                android:paddingLeft="@dimen/detail_article_text_padding"
-                android:paddingRight="@dimen/detail_article_text_padding"
-                android:textColor="@color/primary_text"
-                android:textColorLink="@color/accent"
-                android:textSize="@dimen/detail_body_text_size"
                 android:background="@color/white" />
         </LinearLayout>
     </ScrollView>
