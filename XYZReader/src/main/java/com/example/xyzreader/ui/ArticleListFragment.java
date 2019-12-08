@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +25,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.UpdaterService;
@@ -190,7 +194,7 @@ public class ArticleListFragment extends Fragment implements
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
+        public void onBindViewHolder(final ViewHolder holder, int position) {
             mCursor.moveToPosition(position);
             holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             Date publishedDate = parsePublishedDate();
@@ -209,10 +213,25 @@ public class ArticleListFragment extends Fragment implements
                                 + "<br/>" + " by "
                                 + mCursor.getString(ArticleLoader.Query.AUTHOR)));
             }
-            holder.thumbnailView.setImageUrl(
-                    mCursor.getString(ArticleLoader.Query.THUMB_URL),
-                    ImageLoaderHelper.getInstance(getContext()).getImageLoader());
-            holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+
+            if (!getResources().getBoolean(R.bool.two_pane_view_enabled)) {
+                ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
+                        .get(mCursor.getString(ArticleLoader.Query.THUMB_URL), new ImageLoader.ImageListener() {
+                            @Override
+                            public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
+                                Bitmap bitmap = imageContainer.getBitmap();
+                                if (bitmap != null) {
+                                    Palette p = Palette.generate(bitmap, 12);
+                                    holder.thumbnailView.setImageBitmap(imageContainer.getBitmap());
+                                }
+                            }
+
+                            @Override
+                            public void onErrorResponse(VolleyError volleyError) {
+
+                            }
+                        });
+            }
         }
 
         @Override
@@ -222,7 +241,7 @@ public class ArticleListFragment extends Fragment implements
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public DynamicHeightNetworkImageView thumbnailView;
+        public ThreeTwoImageView thumbnailView;
         public TextView titleView;
         public TextView subtitleView;
 

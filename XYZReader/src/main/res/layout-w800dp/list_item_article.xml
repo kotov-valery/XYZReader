@@ -14,16 +14,6 @@
         android:layout_marginRight="@dimen/list_margin"
         android:orientation="horizontal">
 
-        <!--suppress AndroidLintContentDescription -->
-        <com.example.xyzreader.ui.DynamicHeightNetworkImageView
-            android:id="@+id/thumbnail"
-            android:layout_marginStart="@dimen/item_article_margin"
-            android:layout_width="@dimen/thumbnail_size"
-            android:layout_height="@dimen/thumbnail_size"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_vertical"
-            android:background="@color/icons" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
